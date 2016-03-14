@@ -1,6 +1,6 @@
 {
   "name": "socket.io-selftalk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "socket.io adapter selftalk(local pub/sub server) implementation",
   "main": "index.js",
   "scripts": {

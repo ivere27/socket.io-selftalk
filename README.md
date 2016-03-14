@@ -4,7 +4,7 @@
 socket.io adapter implementation by using local pub/sub server.
 
 
-## examples/server.js
+## server
 ```javascript
 var cluster = require('cluster');
 var os = require('os');
@@ -14,7 +14,7 @@ if (cluster.isMaster) {
   var server = require('http').createServer();
   var io = require('socket.io').listen(server);
 
-  var selftalk = require('../index.js');
+  var selftalk = require('socket.io-selftalk');
   io.adapter(selftalk({ server : true, port: 6378 }));
   // var redis = require('socket.io-redis');
   // io.adapter(redis({ host: 'localhost', port: 6379 }));
@@ -39,7 +39,7 @@ if (cluster.isWorker) {
   var server = http.createServer(app);
   var io = require('socket.io').listen(server);
 
-  var selftalk = require('../index.js');
+  var selftalk = require('socket.io-selftalk');
   io.adapter(selftalk({ port: 6378 }));
   // var redis = require('socket.io-redis');
   // io.adapter(redis({ host: 'localhost', port: 6379 }));
@@ -57,7 +57,7 @@ if (cluster.isWorker) {
 }
 ```
 
-## examples/client.js
+## client
 ```javascript
 var crypto = require('crypto');
 var socket = require('socket.io-client')('http://localhost:8000', {transports : ['websocket']});
